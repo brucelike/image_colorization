@@ -20,7 +20,7 @@ Use the zipfile provided as your dataset. You are expected to split your dataset
 -- put first 3000 images into directory '/data/train' 
 
 -- put remian images into directory '/data/val' 
-## parameters config
+## Parameter config
 -- set your hyparameters in config.py e.g. train_folder, val_folder, epoch etc
 
 -- set the temprature parameter T in config.py
