@@ -14,12 +14,17 @@ Use the zipfile provided as your dataset. You are expected to split your dataset
 
 ## data preprare
 -- download the dataset from https://drive.google.com/file/d/15jprd8VTdtIQeEtQj6wbRx6seM8j0Rx5/view?usp=sharing 
+
 -- make new dir  '/data/train'  and  '/data/val' to current path
+
 -- put first 3000 images into directory '/data/train' 
+
 -- put remian images into directory '/data/val' 
 ## parameters config
 -- set your hyparameters in config.py e.g. train_folder, val_folder, epoch etc
+
 -- set the temprature parameter T in config.py
+
 ## Training
 --run python train.py
 
