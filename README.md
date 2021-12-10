@@ -12,7 +12,7 @@ For systems without a dedicated gpu, you may use a CPU version of pytorch.
 ## Dataset
 Use the zipfile provided as your dataset. You are expected to split your dataset to create a validation set for initial testing. Your final model can use the entire dataset for training. Note that this model will be evaluated on a test dataset not visible to you.
 
-## data preprare
+## Data preprare
 -- download the dataset from https://drive.google.com/file/d/15jprd8VTdtIQeEtQj6wbRx6seM8j0Rx5/view?usp=sharing 
 
 -- make new dir  '/data/train'  and  '/data/val' to current path
