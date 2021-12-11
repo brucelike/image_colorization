@@ -8,6 +8,7 @@ import torch
 from basic_model import Net
 from PIL import Image
 import torchvision.transforms as T
+import torch.nn.functional as F
 import argparse
 import matplotlib.pyplot as plt
 model_path='trained.pth'
@@ -38,6 +39,7 @@ if __name__ == '__main__':
     #image_path='data/val/0.jpg'
     # load the test image and transfer it
     test_img=Image.open(image_path)
+    img_shape=test_img.size
     test_img=input_transform(test_img)
     # load the pretrained model
     model=Net()
@@ -46,11 +48,14 @@ if __name__ == '__main__':
     model.load_state_dict(pretrained)
     model.eval()
     pred_test=model(test_img[None,...]) # colorize the image
+    pred_test = F.interpolate(pred_test, size=(img_shape[1],img_shape[0]), mode='bilinear')
     pred_test=pred_test[0].cpu().detach().numpy()
     pred_test=pred_test.transpose(1,2,0) # transfer the order to RGB format
     pred_test=pred_test*0.5+0.5# denormalize the imag
+    int_out=pred_test.astype('uint8')
+    plt.imsave('test.png',int_out)
     plt.imshow(pred_test)
     plt.axis('off')
-    plt.savefig('test.png')
+
 
 
