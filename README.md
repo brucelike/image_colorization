@@ -20,13 +20,17 @@ Use the zipfile provided as your dataset. You are expected to split your dataset
 -- put first 3000 images into directory '/data/train' 
 
 -- put remian images into directory '/data/val' 
+
+## metrics
+-- As the network is a regressor based approach, thus I select L1loss
+-- the performance is the average loss which can evalaute the pixel level percision 
 ## Parameter config
--- set your hyparameters in config.py e.g. train_folder, val_folder, epoch etc
+-- set your hyparameters in config.py e.g. train_folder, val_folder, epoch etc.
 
 -- set the temprature parameter T in config.py
 
 ## Training
---run python train.py
+--run python train.py embeded the train and validate process
 
 ## inference 
---run python inference.py
+--run python inference.py --image 'Your test image path'
