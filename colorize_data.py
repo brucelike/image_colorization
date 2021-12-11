@@ -11,15 +11,18 @@ class ColorizeData(Dataset):
     def __init__(self, image_paths):
         # Initialize dataset, you may use a second dataset for validation if required
         # Use the input transform to convert images to grayscale
-        self.input_transform = T.Compose([T.ToTensor(),
+        self.input_transform = T.Compose([
                                           T.Resize(size=(256,256)),
+
                                           T.Grayscale(),
-                                          T.Normalize((0.5), (0.5))
+                                          T.ToTensor(),
+                                          T.Normalize((0.5,), (0.5,))
                                           ])
         # Use this on target images(colorful ones)
-        self.target_transform = T.Compose([T.ToTensor(),
+        self.target_transform = T.Compose([
                                            T.Resize(size=(256,256)),
-                                           T.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
+                                           T.ToTensor(),
+                                           T.Normalize((0.5,), (0.5,))])
         self.path=image_paths
         self.image_files = os.listdir(image_paths)
     def __len__(self) -> int:
