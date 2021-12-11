@@ -28,7 +28,7 @@ Use the zipfile provided as your dataset. You are expected to split your dataset
 ## Parameter config
 -- set your hyparameters in config.py e.g. train_folder, val_folder, epoch, batch size etc.
 
--- set the temprature parameter T in config.py
+-- set the temprature parameter T in *config.py*
 
 ## Training
 --run python train.py embeded the train and validate process
