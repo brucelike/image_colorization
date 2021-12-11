@@ -31,7 +31,7 @@ Use the zipfile provided as your dataset. You are expected to split your dataset
 -- set the temprature parameter T in *config.py*
 
 ## Training
---run `$python train.py` embeded the train and validate process
+--run `python train.py` embeded the train and validate process
 
 ## inference 
---run `$ python inference.py --image 'Your test image path'` to get the colorized image
+--run `python inference.py --image 'Your test image path'` to get the colorized image
