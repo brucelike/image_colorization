@@ -34,4 +34,4 @@ Use the zipfile provided as your dataset. You are expected to split your dataset
 --run python train.py embeded the train and validate process
 
 ## inference 
---run `$ python inference.py --image 'Your test image path' to get the colorized image
+--run `$ python inference.py --image 'Your test image path'` to get the colorized image
