@@ -15,11 +15,11 @@ Use the zipfile provided as your dataset. You are expected to split your dataset
 ## Data preprare
 -- download the dataset from https://drive.google.com/file/d/15jprd8VTdtIQeEtQj6wbRx6seM8j0Rx5/view?usp=sharing 
 
--- make new dir  '/data/train'  and  '/data/val' to current path
+-- make new dir  *'/data/train'*  and  *'/data/val'* to current path
 
--- put first 3000 images into directory '/data/train' 
+-- put first 3000 images into directory *'/data/train'* 
 
--- put remian images into directory '/data/val' 
+-- put remian images into directory *'/data/val'* 
 
 ## metrics
 -- As the network is a regressor based approach, thus I select L1loss, other potential loss is MSELoss, you could set it on train.py
