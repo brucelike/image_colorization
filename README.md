@@ -22,7 +22,10 @@ Use the zipfile provided as your dataset. You are expected to split your dataset
 -- put remian images into directory '/data/val' 
 
 ## metrics
--- As the network is a regressor based approach, thus I select L1loss
+-- As the network is a regressor based approach, thus I select L1loss, other potential loss is MSELoss,
+
+you could set it on train.py
+
 -- the performance is the average loss which can evalaute the pixel level percision 
 ## Parameter config
 -- set your hyparameters in config.py e.g. train_folder, val_folder, epoch etc.
