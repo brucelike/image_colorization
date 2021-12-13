@@ -26,10 +26,10 @@ Use the zipfile provided as your dataset. You are expected to split your dataset
 -- put first 3000 images into directory *'/data/train'* 
 
 -- put remian images into directory *'/data/val'* 
-## Models
 
+## Models
 -- It has two models,one is the basic model which is embeded in basic_model.py, the other is Unet which is embeded in unet_model.py
--- 
+
 ## Metrics
 -- As the network is a regressor based approach, thus I select L1loss, other potential loss is MSELoss, you could set it on train.py
 
