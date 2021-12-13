@@ -46,4 +46,4 @@ Use the zipfile provided as your dataset. You are expected to split your dataset
 -- we embeded the train and validate process
 
 ## inference 
---run `python inference.py --image 'Your test image path' -- model 'Your model name'` to get the colorized image
+--run `python inference.py --image 'Your test image path' -- model 'Your model name'` to get the colorized image, the coloried image saved as 'test.png'
