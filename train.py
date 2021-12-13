@@ -12,7 +12,6 @@ class Trainer:
         # Define hparams here or load them from a config file
         if model=='basic':
             self.model=basic_model.Net()
-
         else:
             self.model=Unet()
         self.criterion=nn.L1Loss()
@@ -21,7 +20,7 @@ class Trainer:
         self.weight_decay=weight_decay
         self.batch_size=batch_size
         self.use_gpu=torch.cuda.is_available()
-        self.model_path=os.path.join('pretrained/',model, 'trained.pth')
+        self.model_path=os.path.join('.\pretrained',model, 'trained.pth')
     def train(self):
         # dataloaders
         train_dataset = colorize_data.ColorizeData(train_folder)
@@ -85,12 +84,12 @@ class Trainer:
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(prog='predict')
-    parser.add_argument('--model', default='basic',type=str, help='which model')
+    parser.add_argument('--model', default='basic', help='which model')
     args = parser.parse_args()
     #model=basic_model.Net()
     trainer=Trainer(args.model)
     trainer.train()
-    # #trainer.validate()
+    trainer.validate()
 #%%
 
 
