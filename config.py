@@ -2,7 +2,7 @@
 """
 hparams
 """
-num_epochs = 50  # epoch
+num_epochs = 20  # epoch
 batch_size = 32 #batch_size
 train_folder = './data/train/'  # train
 val_folder = './data/val/'  # validation

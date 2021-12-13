@@ -6,12 +6,13 @@ Created on Fri Dec 10 13:43:15 2021
 """
 import torch
 from basic_model import Net
+from unet_model import Unet
 from PIL import Image
 import torchvision.transforms as T
 import torch.nn.functional as F
+import os
 import argparse
 import matplotlib.pyplot as plt
-model_path='trained.pth'
 
 
         # Use the input transform to convert images to grayscale
@@ -33,17 +34,21 @@ target_transform = T.Compose([
 if __name__ == '__main__':
     #model=basic_model.Net()
     parser = argparse.ArgumentParser(prog='predict')
-    parser.add_argument('--image', default='data/val/0.jpg', help='the path of test image')
+    parser.add_argument('--image', default='data/val/0.jpg', type=str, help='the path of test image')
+    parser.add_argument('--model', default='basic',type=str, help='which model')
     args = parser.parse_args()
     image_path=args.image
+    model_path=args.model
     #image_path='data/val/0.jpg'
     # load the test image and transfer it
     test_img=Image.open(image_path)
     img_shape=test_img.size
     test_img=input_transform(test_img)
     # load the pretrained model
-    model=Net()
+    #model=Net()
+    model=Unet()
     # load the weights
+    model_path=os.path.join(model_path,'trained.pth')
     pretrained=torch.load(model_path)
     model.load_state_dict(pretrained)
     model.eval()

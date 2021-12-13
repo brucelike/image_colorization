@@ -1,20 +1,27 @@
 import torch
 import torch.nn as nn
 import basic_model
+from unet_model import Unet
 import colorize_data
 from torch.utils.data import DataLoader
 from config import num_epochs,train_folder,val_folder,batch_size, weight_decay, learing_rate
-
+import argparse
+import os
 class Trainer:
-    def __init__(self):
+    def __init__(self,model):
         # Define hparams here or load them from a config file
-        self.model=basic_model.Net()
-        self.criterion=nn.L1loss()
+        if model=='basic':
+            self.model=basic_model.Net()
+
+        else:
+            self.model=Unet()
+        self.criterion=nn.L1Loss()
         self.num_epochs=num_epochs
         self.lr=learing_rate
         self.weight_decay=weight_decay
         self.batch_size=batch_size
         self.use_gpu=torch.cuda.is_available()
+        self.model_path=os.path.join('pretrained/',model, 'trained.pth')
     def train(self):
         # dataloaders
         train_dataset = colorize_data.ColorizeData(train_folder)
@@ -56,7 +63,8 @@ class Trainer:
                    train_loss_avg[-1] /= num_batches
                    print('Epoch [%d / %d---> %d]  loss error: %f' 
                          % (epoch+1, self.num_epochs,num_batches, train_loss_avg[-1]))
-        torch.save(self.model.state_dict(), 'trained.pth') #save model
+        torch.save(self.model.state_dict(), self.model_path) #save model
+        print('model trained')
 
     def validate(self):
       self.model.eval()
@@ -76,8 +84,11 @@ class Trainer:
          print('average loss: %f' % (val_loss_avg))
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(prog='predict')
+    parser.add_argument('--model', default='basic',type=str, help='which model')
+    args = parser.parse_args()
     #model=basic_model.Net()
-    trainer=Trainer()
+    trainer=Trainer(args.model)
     trainer.train()
     # #trainer.validate()
 #%%
