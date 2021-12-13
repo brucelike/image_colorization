@@ -7,7 +7,13 @@ Create a conda environment with pytorch, cuda.
 `$ conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c nvidia`
 
 For systems without a dedicated gpu, you may use a CPU version of pytorch.
-`$ conda install pytorch torchvision torchaudio cpuonly -c pytorch`
+`$ conda install pytorch torchvision torchaudio cpuonly -c pytorch.
+
+## Requirement Lib
+Install required packages eg.
+-- PIL
+-- matplotlib
+-- 
 
 ## Dataset
 Use the zipfile provided as your dataset. You are expected to split your dataset to create a validation set for initial testing. Your final model can use the entire dataset for training. Note that this model will be evaluated on a test dataset not visible to you.
@@ -26,12 +32,16 @@ Use the zipfile provided as your dataset. You are expected to split your dataset
 
 -- the performance is the average loss which can evalaute the pixel level percision 
 ## Parameter config
+
 -- set your hyparameters in config.py e.g. train_folder, val_folder, epoch, batch size etc.
 
 -- set the temprature parameter T in *config.py*
 
 ## Training
---run `python train.py` embeded the train and validate process
+--run `python train.py --model 'Your model name' % we have two options :'basic', 'unet'
+
+-- embeded the train and validate process
+--
 
 ## inference 
 --run `python inference.py --image 'Your test image path'` to get the colorized image
