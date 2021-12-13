@@ -38,10 +38,9 @@ Use the zipfile provided as your dataset. You are expected to split your dataset
 -- set the temprature parameter T in *config.py*
 
 ## Training
---run `python train.py --model 'Your model name' ### we have two options :'basic', 'unet'
+--run `python train.py --model 'Your model name' `    we have two options :'basic', 'unet'
 
--- embeded the train and validate process
---
+-- we embeded the train and validate process
 
 ## inference 
---run `python inference.py --image 'Your test image path'` to get the colorized image
+--run `python inference.py --image 'Your test image path' -- model 'Your model name'` to get the colorized image
