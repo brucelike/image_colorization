@@ -10,7 +10,6 @@ For systems without a dedicated gpu, you may use a CPU version of pytorch.
 `$ conda install pytorch torchvision torchaudio cpuonly -c pytorch.
 
 ## Requirement Lib
-Install required packages eg.
 -- PIL
 -- matplotlib
 -- 
